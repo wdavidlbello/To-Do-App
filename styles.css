@@ -59,6 +59,7 @@ li {
     display: flex;
     justify-content:space-between;
     height: 1.2em;
+    margin-bottom: 1em;
 }
 
 .checkedIcon {
