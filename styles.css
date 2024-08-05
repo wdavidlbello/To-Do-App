@@ -1,0 +1,83 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+    background: -webkit-linear-gradient(-30deg,#431C69 35%,#FFFF) fixed;
+}
+main {
+    width: 27em;
+    margin: 4em auto;
+    background-color: white;
+    border-radius: .8em;
+}
+
+section {
+    padding: 1em;
+    border-radius: 1em;
+}
+
+header {
+    display: flex;
+    margin-bottom: .6em;
+}
+header>h1 {
+    margin-right: .5em;
+}
+article {
+    margin-bottom: 2em;
+}
+
+form {
+   display: flex;
+   margin-bottom: 2em;
+}
+input {
+    height: 3em;
+    width: 30em;
+    border: none;
+    border-radius: 2em;
+    padding:.5em 1.5em;
+    background-color:#e7efef;
+}
+
+form>button {
+    margin-left: -7.8em;
+    border: none;
+    border-radius: 3em;
+    padding: .3em 3em;
+    background-color: rgb(255, 30, 30);
+    color: white;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+li {
+    display: flex;
+    justify-content:space-between;
+    height: 1.2em;
+}
+
+.checkedIcon {
+    width: .2em;
+    height: 1.2em;
+    flex:.2;
+    margin-right: .5em;
+}
+li>p{
+    flex:3;
+}
+.li-button {
+    background-color: white;
+    border: none;
+    border-radius: 1em;
+
+    flex:.2;
+}
+
+.li-button:hover{
+    background-color: #e1d2f0;
+}
