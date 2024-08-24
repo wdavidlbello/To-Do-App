@@ -62,15 +62,20 @@ li {
     margin-bottom: 1em;
 }
 
+li>div {
+    display: flex;
+    flex: 3.2;
+}
 .checkedIcon {
     width: .2em;
     height: 1.2em;
     flex:.2;
     margin-right: .5em;
 }
-li>p{
+div>p{
     flex:3;
 }
+
 .li-button {
     background-color: white;
     border: none;
@@ -81,4 +86,8 @@ li>p{
 
 .li-button:hover{
     background-color: #e1d2f0;
+}
+
+.p-line-through {
+    text-decoration: line-through;
 }
