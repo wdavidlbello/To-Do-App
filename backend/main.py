@@ -7,7 +7,7 @@ def tasks():
     if request.method =='GET':
         tasks = Task.query.all()
         json_tasks = list(map(lambda x: x.to_json(),tasks))
-        return jsonify({"tasks":json_tasks}),200
+        return jsonify(json_tasks),200
    
     if request.method =='POST':
         name = request.json.get("name")
@@ -25,13 +25,30 @@ def tasks():
     
         return jsonify({"message":"Tarea creada"}),201
 
-@app.route("/task/<int:id>",methods=["PUT","DELETE"])
+@app.route("/task/<int:id>",methods=["GET","PUT","DELETE"])
 def task(id):
+    task = Task.query.get(id)
+    if not task:
+        return jsonify({"message":"Tarea no encontrada"}),404
+    
+    if request.method == 'GET':   
+        json_task = task.to_json()
+        return jsonify(json_task),200
+    
     if request.method == 'PUT':
-        task = Task.query.get(id)
+        data = request.json
+        task.name = data.get("name",task.name)
+        task.done = data.get("done",task.done)
 
-        if not task:
-            return jsonify({"message":"Tarea no encontrada"})
+        db.session.commit()
+
+        return jsonify({"message":"Task updated"}),200
+    
+    if request.method == 'DELETE':
+        db.session.delete(task)
+        db.session.commit()
+
+        return jsonify({"message":"Task deleted"}),200
 
 if __name__ == "__main__":
     with app.app_context():
